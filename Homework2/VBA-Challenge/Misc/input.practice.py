@@ -1,0 +1,11 @@
+fname= input("What is you First Name?")
+lname=input("What is your Last Name?")
+Age=int(input("How old are you?"))
+zipcode=int(input("What is your zip code?"))
+tf=bool(input("are all of your answers true?"))
+
+print(str(fname)+"Dorna")
+print(str(lname)+"Shakoory")
+print(str(Age)+33)
+print(str(zipcode)+92612)
+print(str(tf)+"Yes")
