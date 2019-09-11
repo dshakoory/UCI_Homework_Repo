@@ -7,7 +7,7 @@ poll= os.path.join("polldata.csv")
 # Opening the CSV file and ask it to read a text file to write
 
 with open(poll, 'r') as csvfile,\
-	open('electionresults.txt', 'w') as textfile:
+	open('electiondata.txt', 'w') as textfile:
 
 #ed defined as Election Data
 	ed = csv.reader(csvfile, delimiter=",")
@@ -55,18 +55,15 @@ with open(poll, 'r') as csvfile,\
 
 	
 	election_results = f"""
-	Election Results
-	
+	Final Election Results
 	Total Votes = {votect}
-
 	{clist[0]}: {percent[clist[0]]}% ({cvotes[clist[0]]})
 	{clist[1]}: {percent[clist[1]]}% ({cvotes[clist[1]]})
 	{clist[2]}: {percent[clist[2]]}% ({cvotes[clist[2]]})
 	{clist[3]}: {percent[clist[3]]}% ({cvotes[clist[3]]})
-
 	Winner: {popularvotes}"""
-	# Write the election results as a text file
-	textfile.write(election_results)
 
-	# Print the election results to the terminal
+
+	#adding the results to the text file 
+	textfile.write(election_results)
 	print(election_results)
