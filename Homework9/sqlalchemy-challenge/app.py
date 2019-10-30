@@ -10,6 +10,8 @@ from flask import Flask , jsonify
 #setting up the dataset
 
 engine = create_engine("sqlite:///Resources/hawaii.sqlite",echo=False)
+
+# reflect the tables
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
@@ -17,7 +19,7 @@ Base.prepare(engine, reflect=True)
 Measurement = Base.classes.measurement
 Station = Base.classes.station
 
-
+#create a session
 session = scoped_session(sessionmaker(bind=engine))
 
 last_12months = session.query(Measurement.date).order_by(Measurement.date.desc()).first()[0]
@@ -25,7 +27,7 @@ last_12months= dt.datetime.strptime(last_12months,"%Y-%m-%d")
 date_oneyearago = last_12months - dt.timedelta(days = 365)
 
 
-#settin up the flask
+#make an app instance
 
 app = Flask(__name__)
 
@@ -46,8 +48,9 @@ def welcome():
         f"/api/v1.0/<start>/<end><br/>"
     )
 
-
+#precipitation for the last 12 months
 @app.route("/api/v1.0/precipitation")
+
 def precipitation():
 
 	whole_12months = session.query(Measurement.date,Measurement.prcp).filter(Measurement.date > date_oneyearago ).order_by(Measurement.date).all()
@@ -55,6 +58,7 @@ def precipitation():
 	precipitation_data = dict(whole_12months)
 	return jsonify({'Data':precipitation_data})
 
+#list of stations
 @app.route("/api/v1.0/stations")
 def stations():
 	stations = session.query(Station).all()
@@ -87,7 +91,7 @@ def tobs():
 
 @app.route("/api/v1.0/<start>")
 def start_temp(start=None):
-
+#when given the start only, calculate lowest_temp, avg_temp, highest_temp for all dates greater than and equal to the start date
 	starting_temps = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs),func.max(Measurement.tobs)).filter(Measurement.date >= start).all()
 
 	start_list = list()
@@ -100,8 +104,6 @@ def start_temp(start=None):
 
 	return jsonify ({'Data':start_list})
 
-
-
 @app.route("/api/v1.0/<start>/<end>")
 def calc_temps(start=None,end=None):
     temperatures = session.query(func.min(Measurement.tobs),func.avg(Measurement.tobs),func.max(Measurement.tobs)).filter(Measurement.date >= start,Measurement.date <= end).all()
@@ -113,11 +115,9 @@ def calc_temps(start=None,end=None):
     	temp_dict["Avg Temo"] = avg_temp
     	temp_dict["Max Temp"] = highest_temp
     	temp_list.append(temp_dict)
-
+ #return json representation of the list
     return jsonify ({'Data':temp_list})
- 
-
-
-
+	
+	#run the app
 if __name__ == '__main__':
     app.run(debug=True)
