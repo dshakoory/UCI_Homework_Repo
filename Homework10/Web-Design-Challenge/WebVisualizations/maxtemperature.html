@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Dorna Shakoory- WeatherPy</title>
+    <title>Dorna Shakoory - WeatherPy</title>
   </head>
   
   <body>
@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="nav navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active-nav" href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,12 +50,10 @@
             <div class="card card-custom ">
               <div class="card-body">
                 <h2 class="card-header "><i class="fas fa-chart-line fa-fw"></i>
-                Summary: Latitude Analysis</h2>
-                <p class="card-text"><img id="image" src="Resources/Images/Longitude_vs_Lat.png"  class="img-fluid" align="left" alt="Latitude vs Longitude">
-                  <p>The purpose of this project was to analyze how weather changes as you get closer to the equator.
-                  To accomplish this analysis, we first pulled data from the OpenWeatherMap API to assemble a dataset on over 500 cities.</p>
-                  After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors we looked at included:</br>
-                  <p>Temperature, cloudiness, wind speed, and humidity. This site provides the source data and visualizations created as part of the analysis, as well as explanations and descriptions of any trends and correlations witnessed.</p>
+                Latitude vs. Temperature</h2>
+                <p class="card-text"><img id="image" src="Resources/Images/Latitude_vs_Max Temperature.png"  class="img-fluid" align="left" alt="Latitude vs Temperature">
+                  <p>The analysis of the latitude versus the maximum temperature occured on June 08, 2018.</br> During this time of year the Northern hemisphere (latitude > 0°) is warmer than the Southern hemisphere (latitude < 0°). As we approach the equator the temperature increases.
+                  </p>
                 </p>
               </div>
             </div>
@@ -67,7 +65,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="hovereffect">
-                      <a href="maxtemperature.html"><img src="Resources/Images/Latitude_vs_Max Temperature.png" class=" img-thumbnail" alt="Latitude vs Temperature"><p class="card-text" align="center" style="color:black"><small>Latitude vs. Temperature</small></p></a>
+                      <a href="maxtemperature.html"><img src="Resources/Images/Latitude_vs_Max Temperature.png" class=" active-image img-thumbnail" alt="Latitude vs Temperature"><p class="card-text" align="center" style="color:black"><small>Latitude vs. Temperature</small></p></a>
                     </div>
                   </div>
                   

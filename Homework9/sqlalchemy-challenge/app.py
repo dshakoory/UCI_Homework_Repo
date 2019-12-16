@@ -40,7 +40,7 @@ def welcome():
         f"/api/v1.0/precipitation<br/>"
         f"Station list:<br/>"
         f"/api/v1.0/stations<br/>"
-        f"Last's year's tem observation:<br/>"
+        f"Last's year's temp observation:<br/>"
         f"/api/v1.0/tobs<br/>"
         f"List of the minimum , average and the max temperature for start date:<br/>"
         f"/api/v1.0/<start><br/>"
