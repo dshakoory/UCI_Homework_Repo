@@ -1,11 +1,11 @@
 .aText {
-  font-family: 'Barlow Condensed',sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   text-anchor: middle;
 }
 
 .axis-text-main{
-  font-family: 'Barlow Condensed',sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   text-anchor: middle;
   font-size: 0.75em;
 }
@@ -31,15 +31,15 @@
 
 /* font size dependent on radius, see app.js */
 .stateText {
-  font-family: sans-serif;
-  fill: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  fill: rgb(3, 1, 1);
   text-anchor: middle;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 8px;
 }
 
 .stateCircle {
-  fill: #89bdd3;
+  fill: #2fe0dd;
   stroke: #e3e3e3;
 }
 
@@ -60,8 +60,7 @@
   border-radius: 4px;
 }
 
-/* Mobile Rules */
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 400px) {
   .stateText {
     display: none;
   }
@@ -73,6 +72,6 @@
 
 @media screen and (max-width: 400px) {
   .aText {
-    font-size: 13px;
+    font-size: 11px;
   }
 }
